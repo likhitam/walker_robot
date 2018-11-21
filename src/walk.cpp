@@ -47,10 +47,6 @@ Walk::Walk() {
   msg.angular.x = 0.0;
   msg.angular.y = 0.0;
   msg.angular.z = 0.0;
-  ros::Publisher velocityPub = n.advertise<geometry_msgs::Twist>
-                                ("/cmd_vel_mux/input/navi", 1000);
-  sub = n.subscribe <sensor_msgs::LaserScan>
-       ("/scan", 500, &Walk::laserCallback, this);
 }
 
 Walk::~Walk() {
@@ -69,10 +65,14 @@ void Walk::laserCallback(const sensor_msgs::LaserScan::ConstPtr& msg) {
 }
 
 void Walk::run() {
+  ros::Publisher velocityPub = n.advertise<geometry_msgs::Twist>
+                                ("/cmd_vel_mux/input/navi", 1000);
+  sub = n.subscribe <sensor_msgs::LaserScan>
+       ("/scan", 500, &Walk::laserCallback, this);
   ros::Rate loop_rate(10);
 
   while (ros::ok()) {
-    // Check for collision cetection
+    // Check for collision detection
     if (obstacle == 1) {
       // If collision is detected
       msg.linear.x = 0.0;
