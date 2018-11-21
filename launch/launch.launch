@@ -1,4 +1,8 @@
 <launch>
+  <arg 
+    name = "record" 
+    default = "false" 
+  />
   <!-- Launch TurtleBot in gazebo -->  
   <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
   </include>
@@ -10,5 +14,12 @@
     name="walk"
     output="screen"
     launch-prefix="gnome-terminal --command"
+  />
+  <node
+    pkg="rosbag"
+    type="record"
+    name="record"
+    args = "-a -O $(find vacuum_cleaner)/results/recordedData.bag -x /camera/(.*) --duration=30"
+    if = "$(arg record)"
   />
 </launch>
