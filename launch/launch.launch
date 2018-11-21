@@ -1,0 +1,14 @@
+<launch>
+  <!-- Launch TurtleBot in gazebo -->  
+  <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+  </include>
+
+  <!-- Walk node -->
+  <node
+    pkg="walker_robot"
+    type="walk"
+    name="walk"
+    output="screen"
+    launch-prefix="gnome-terminal --command"
+  />
+</launch>
