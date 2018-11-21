@@ -59,7 +59,7 @@ roslaunch walker_robot launch.launch record:=false
 To play the recorded messages execute in the results folder the following command:
 ```
 cd ~/catkin_ws/src/beginner_tutorials/results
-rosbag play record.bag
+rosbag play recordedData.bag
 ```
 
 6. The talker and listener nodes will continuously run. To end the process enter CTRL+C in both three terminals.
