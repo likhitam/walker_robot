@@ -33,8 +33,8 @@
  * Define the functions to run TurtleBot and process laser values
  */
 
-#ifndef INCLUDE_WALK_HPP_
-#define INCLUDE_WALK_HPP_
+#ifndef CATKIN_WS_SRC_WALKER_ROBOT_INCLUDE_WALK_HPP_
+#define CATKIN_WS_SRC_WALKER_ROBOT_INCLUDE_WALK_HPP_
 
 #include "ros/ros.h"
 #include "sensor_msgs/LaserScan.h"
@@ -77,4 +77,4 @@ class Walk {
   float angspeedZ;
 };
 
-#endif  // INCLUDE_WALK_HPP_
+#endif  // CATKIN_WS_SRC_WALKER_ROBOT_INCLUDE_WALK_HPP_
